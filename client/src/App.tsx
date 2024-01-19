@@ -25,25 +25,25 @@ const App: FC = () => {
     }
 
     if (store.isLoading) {
-        return <div>Загрузка...</div>
+        return <div>Loading...</div>
     }
 
     if (!store.isAuth) {
         return (
             <div>
                 <LoginForm/>
-                <button onClick={getUsers}>Получить пользователей</button>
+                <button onClick={getUsers}>Get users</button>
             </div>
         );
     }
 
     return (
         <div>
-            <h1>{store.isAuth ? `Пользователь авторизован ${store.user.email}` : 'АВТОРИЗУЙТЕСЬ'}</h1>
-            <h1>{store.user.isActivated ? 'Аккаунт подтвержден по почте' : 'ПОДТВЕРДИТЕ АККАУНТ!!!!'}</h1>
-            <button onClick={() => store.logout()}>Выйти</button>
+            <h1>{store.isAuth ? `User is authorized ${store.user.email}` : 'AUTHORIZE'}</h1>
+            <h1>{store.user.isActivated ? '\n' + 'Account confirmed by email' : 'CONFIRM YOUR ACCOUNT!'}</h1>
+            <button onClick={() => store.logout()}>Sign out</button>
             <div>
-                <button onClick={getUsers}>Получить пользователей</button>
+                <button onClick={getUsers}>Get users</button>
             </div>
             {users.map(user =>
                 <div key={user.email}>{user.email}</div>

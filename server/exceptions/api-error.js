@@ -7,7 +7,7 @@ module.exports = class ApiError extends Error {
     this.errors = errors;
 }
 static UnauthorizedError() {
-    return new ApiError(401, 'Користувач не зареєстрований')
+    return new ApiError(401, '\n' + 'The user is not registered')
 }
 static BadRequest (message, errors = []) {
     return new ApiError(400, message, errors);
